@@ -30,6 +30,10 @@ function createBoxes(amount) {
 destroyBtn.addEventListener("click", handleDestroyOnClick);
 
 function handleDestroyOnClick(event) {
+  destroyBoxes();
+}
+
+function destroyBoxes() {
   boxes.innerHTML = "";
   createBoxes((input.value = ""));
 }
