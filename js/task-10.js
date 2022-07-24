@@ -16,15 +16,16 @@ function handleCreateOnClick() {
 }
 
 function createBoxes(amount) {
-  const color = getRandomHexColor();
+  // const color = getRandomHexColor();
+  const array = [];
 
   for (let i = 0; i < amount; i++) {
     const size = 30 + i * 10;
-    boxes.insertAdjacentHTML(
-      "beforeend",
-      `<div style="background-color: ${color}; width: ${size}px; height: ${size}px"></div>`
+    array.push(
+      `<div style="background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px"></div>`
     );
   }
+  boxes.insertAdjacentHTML("beforeend", array.join(""));
 }
 
 destroyBtn.addEventListener("click", handleDestroyOnClick);
@@ -35,5 +36,5 @@ function handleDestroyOnClick(event) {
 
 function destroyBoxes() {
   boxes.innerHTML = "";
-  createBoxes((input.value = ""));
+  input.value = "";
 }
